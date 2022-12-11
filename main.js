@@ -97,3 +97,38 @@ function setMainImage(num) {
 }
 
 setMainImage(0);
+
+////////////////////// Arrow Buttons ////////////////////////
+
+let leftArrow = document.getElementsByClassName("left")[0];
+let rightArrow = document.getElementsByClassName("right")[0];
+
+leftArrow.onclick = () => {
+  for (let i = thumbs.length - 1; i >= 0; i--) {
+    if (thumbs[i].getAttribute("class") === "selected") {
+      if (i === 0) {
+        thumbs[i].setAttribute("class", "not-selected");
+        setMainImage(thumbs.length - 1);
+      } else {
+        thumbs[i].setAttribute("class", "not-selected");
+        thumbs[--i].setAttribute("class", "selected");
+        setMainImage(i--);
+      }
+    }
+  }
+};
+
+rightArrow.onclick = () => {
+  for (let i = 0; i < thumbs.length; i++) {
+    if (thumbs[i].getAttribute("class") === "selected") {
+      if (i === thumbs.length - 1) {
+        thumbs[i].setAttribute("class", "not-selected");
+        setMainImage(0);
+      } else {
+        thumbs[i].setAttribute("class", "not-selected");
+        thumbs[++i].setAttribute("class", "selected");
+        setMainImage(i++);
+      }
+    }
+  }
+};
