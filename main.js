@@ -44,3 +44,16 @@ const images = [
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus mi ex, semper ut faucibus eget, bibendum et quam.",
   },
 ];
+
+/////////////////// Thumbnails ///////////////////
+
+let preview = document.querySelector(".thumbnails ul");
+
+for (let i = 0; i < images.length; i++) {
+  let thumb = document.createElement("li");
+  let imgThumb = document.createElement("img");
+  thumb.setAttribute("class", "not-selected");
+  imgThumb.setAttribute("src", images[i].src);
+  thumb.appendChild(imgThumb);
+  preview.appendChild(thumb);
+}
