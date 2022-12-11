@@ -132,3 +132,17 @@ rightArrow.onclick = () => {
     }
   }
 };
+
+////////////////// Selecting Image ////////////////
+
+for (let i = 0; i < thumbs.length; i++) {
+    thumbs[i].onclick = () => {
+      for (let j = 0; j < thumbs.length; j++) {
+        if (thumbs[j].getAttribute("class") === "selected") {
+          thumbs[j].setAttribute("class", "not-selected");
+        }
+      }
+      thumbs[i].setAttribute("class", "selected");
+      setMainImage(i);
+    };
+  }
