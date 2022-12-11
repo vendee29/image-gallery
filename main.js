@@ -146,3 +146,9 @@ for (let i = 0; i < thumbs.length; i++) {
       setMainImage(i);
     };
   }
+
+  /////////////////// Add Image ////////////////////////
+
+function addImage(source, name, descr) {
+    images.push({ src: source, title: name, description: descr });
+  }
