@@ -57,3 +57,43 @@ for (let i = 0; i < images.length; i++) {
   thumb.appendChild(imgThumb);
   preview.appendChild(thumb);
 }
+
+/////////////////////// Main Image //////////////////////////
+
+let mainImage = document.querySelector(".mainImg img");
+let heading = document.querySelector(".mainImg h1");
+let description = document.querySelector(".mainImg p");
+let thumbs = document.querySelectorAll(".thumbnails li");
+
+let imagesSrc = [];
+
+for (let image of images) {
+  imagesSrc.push(image.src);
+}
+
+let backgroundImg = document.querySelector(".background-image");
+
+function setHeading(num) {
+  heading.innerHTML = images[num].title;
+}
+
+function setDescription(num) {
+  description.innerHTML = images[num].description;
+}
+
+function setBackgroundImg(num) {
+  backgroundImg.setAttribute(
+    "style",
+    `background: url(${imagesSrc[num]}); background-size: cover;`
+  );
+}
+
+function setMainImage(num) {
+  mainImage.setAttribute("src", images[num].src);
+  setHeading(num);
+  setDescription(num);
+  setBackgroundImg(num);
+  thumbs[num].setAttribute("class", "selected");
+}
+
+setMainImage(0);
